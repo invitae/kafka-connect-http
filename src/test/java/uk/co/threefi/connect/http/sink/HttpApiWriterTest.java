@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class HttpApiWriterTest {
@@ -69,7 +70,7 @@ public class HttpApiWriterTest {
       Assert.assertEquals(HttpSinkConfig.RequestMethod.PUT.toString(),requestInfo.getMethod());
       Assert.assertEquals(endPoint,requestInfo.getUrl());
       Assert.assertEquals(payload,requestInfo.getBody());
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
+      assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
     }
   }
 
@@ -95,7 +96,7 @@ public class HttpApiWriterTest {
       Assert.assertEquals(HttpSinkConfig.RequestMethod.POST.toString(),requestInfo.getMethod());
       Assert.assertEquals(endPoint,requestInfo.getUrl());
       Assert.assertEquals(payload,requestInfo.getBody());
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
+      assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
     }
   }
 
@@ -121,7 +122,7 @@ public class HttpApiWriterTest {
       Assert.assertEquals(HttpSinkConfig.RequestMethod.DELETE.toString(),requestInfo.getMethod());
       Assert.assertEquals(endPoint,requestInfo.getUrl());
       Assert.assertEquals(payload,requestInfo.getBody());
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
+      assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
     }
   }
 
@@ -144,8 +145,8 @@ public class HttpApiWriterTest {
     Assert.assertEquals(1,restHelper.getCapturedRequests().size());
     for( RequestInfo requestInfo : restHelper.getCapturedRequests())
     {
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Cache-Control:no-cache"));
+      assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
+      assertThat(requestInfo.getHeaders(),hasItems("Cache-Control:no-cache"));
     }
   }
 
@@ -169,8 +170,8 @@ public class HttpApiWriterTest {
     Assert.assertEquals(1,restHelper.getCapturedRequests().size());
     for( RequestInfo requestInfo : restHelper.getCapturedRequests())
     {
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
-      Assert.assertThat(requestInfo.getHeaders(),hasItems("Cache-Control:no-cache"));
+      assertThat(requestInfo.getHeaders(),hasItems("Content-Type:application/json"));
+      assertThat(requestInfo.getHeaders(),hasItems("Cache-Control:no-cache"));
     }
   }
 
