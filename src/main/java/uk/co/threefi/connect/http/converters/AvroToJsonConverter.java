@@ -5,7 +5,6 @@ import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.SchemaAndValue;
 import org.apache.kafka.connect.json.JsonConverter;
 import org.apache.kafka.connect.storage.Converter;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class AvroToJsonConverter implements Converter {
      */
     @Override
     public byte[] fromConnectData(String s, Schema schema, Object o) {
-        throw new NotImplementedException();
+        return new byte[]{};
     }
 
     @Override
